@@ -48,7 +48,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: bbs_app_production
-  username: bbs_app
-  password: <%= ENV['BBS_APP_DATABASE_PASSWORD'] %>
+   <<: *default
+   url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>
